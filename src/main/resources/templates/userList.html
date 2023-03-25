@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8">
+    <title>List of Users</title>
+</head>
+<body>
+<a th:href="@{/new}">New User</a>
+
+<table>
+    <thead>
+    <tr>
+        <th> Name</th>
+        <th> Date of Birth</th>
+        <th> Username</th>
+        <th> Email</th>
+        <th> Edit</th>
+        <th> Delete</th>
+    </tr>
+    </thead>
+    <!-- Headings: Name(First Name + Last Name), Date of Birth, Username, Email, Edit, Delete -->
+    <tbody>
+    <tr th:each="users :${userData}">
+        <td th:text="${users.firstName}+${users.lastName}"></td>
+        <td th:text="${users.dateOfBirth}"></td>
+        <td th:text="${users.userName}"></td>
+        <td th:text="${users.email}"></td>
+        <td><a th:href="@{/edit/{id}(id=${users.userId})}">Edit</a></td>
+        <td><a th:href="@{/delete/{id}(id=${users.userId})}">Delete</a></td>
+    </tr>
+    </tbody>
+</table>
+</body>
+</html>

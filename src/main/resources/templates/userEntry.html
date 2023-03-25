@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8">
+    <title>New/Edit User</title>
+</head>
+<body>
+
+<form action="#" th:action="@{/save}" th:method="POST" th:object="${user}">
+    <!-- Headings: Name(First Name + Last Name), Date of Birth, Username, Email, Edit, Delete -->
+    <input th:field="*{userId}" type="hidden">
+    <input placeholder="First Name" th:field="*{firstName}" type="text">
+    <input placeholder="Last Name" th:field="*{lastName}" type="text">
+    <input placeholder="Date of Birth" th:field="*{dateOfBirth}" type="text">
+    <input placeholder="Username" th:field="*{userName}" type="text">
+    <input placeholder="Email Id" th:field="*{email}" type="text">
+    <button type="submit">New/Edit User</button>
+</form>
+</body>
+</html>
